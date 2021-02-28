@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity{
 
     public void addDescriptionItem(String description, int priority)
     {
-        System.out.println(current.date);
         current.addDescriptionItem(description, priority);
     }
 

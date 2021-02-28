@@ -62,12 +62,12 @@ public class FourthFragment extends Fragment {
         if (!checkCameraPermission()) {
             requestCameraPermission();
         }
-        else {
+        if(checkCameraPermission()) {
             Uri relativePath = Uri.fromFile(getPictureFile());
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             cameraIntent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, relativePath);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            //TO_DO    current.addPhotoItem(relativePath.toString(),priority);
+            ((MainActivity)getActivity()).addPhotoItem(relativePath.toString(),1);
         }
     }
     //this function creates a file to store a camera image
