@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     static final int CAMERA_REQUEST = 1;
-    private Documentation current = new Documentation();
     private int priority = 1;
     private static final String IMAGE_DIRECTORY_NAME = "VLEMONN";
 
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //TO_DO CHANGE NAME TO MATCH NEW UI
+        /*
         FloatingActionButton camera = findViewById(R.id.fab);
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        */
 //TO_DO CHANGE BUTTON TO MATCH UI
 /*
         mDescriptionEnter = (Button)findViewById(R.id.button1);
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             cameraIntent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, relativePath);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            current.addPhotoItem(relativePath.toString(),priority);
+        //TO_DO    current.addPhotoItem(relativePath.toString(),priority);
         }
     }
     //this function creates a file to store a camera image

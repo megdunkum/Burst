@@ -23,12 +23,13 @@
         android:text="Burst Makes Water Damage\nDocumentation Easier"
         android:textAlignment="center"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@id/editText"
+        app:layout_constraintBottom_toTopOf="@id/editTextDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.152"
+        android:gravity="center_horizontal" />
 
     <Button
         android:id="@+id/button_second"
@@ -38,15 +39,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextLocation" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
         android:ems="10"
-        android:hint="Date"
+        android:hint="Date of Damage"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="356dp"
+        android:ems="10"
+        android:hint="Location in House"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -59,21 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="244dp"
         android:ems="10"
-        android:hint="Time"
+        android:hint="Approximate Time"
         android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
-        android:ems="10"
-        android:hint="Location"
-        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
