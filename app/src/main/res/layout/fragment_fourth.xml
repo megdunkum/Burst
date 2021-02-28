@@ -1,64 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdFragment">
+    tools:context=".FourthFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="wrap_content"
+        android:id="@+id/textview_fourth"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
         android:gravity="center_horizontal"
-        android:text="Write a Description of \nthe Water Damage Below"
+        android:text="Click on The Camera Icon Below to Take A Picture of The Water Damage"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/searchImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_photo_camera_24"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_third"
+        android:id="@+id/button_fourth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
-        android:text="Next"
+        android:text="Compile Documentation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-<!--    Previous Button    app:layout_constraintHorizontal_bias="0.698"-->
-
-
-<!-- Previous Button
-    <Button
-        android:id="@+id/button_third"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="144dp"
-        android:text="Prev"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
-        app:layout_constraintStart_toStartOf="parent" />
--->
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="264dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Description"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--    Previous Button    app:layout_constraintHorizontal_bias="0.698"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Burst">
+
         <activity android:name=".PDFHeader"></activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.burst"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path">
+            </meta-data>
+        </provider>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -28,5 +40,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>
