@@ -2,6 +2,7 @@ package com.example.burst;
 
 import android.Manifest;
 import android.app.DirectAction;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,6 +18,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -25,6 +31,7 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.w3c.dom.Attr;
@@ -44,7 +51,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.ProcessingInstruction;
 import org.w3c.dom.Text;
 import org.w3c.dom.UserDataHandler;
-
+import androidx.lifecycle.ViewModelProvider;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -52,19 +59,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     static final int CAMERA_REQUEST = 1;
     private int priority = 1;
-    private static final String IMAGE_DIRECTORY_NAME = "VLEMONN";
+    DocumentationViewModel mViewModel;
+    private static final String IMAGE_DIRECTORY_NAME = "BURST";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mViewModel = new ViewModelProvider(this).get(DocumentationViewModel.class);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 //TO_DO CHANGE NAME TO MATCH NEW UI
         /*
         FloatingActionButton camera = findViewById(R.id.fab);
@@ -106,13 +117,13 @@ public class MainActivity extends AppCompatActivity {
  */
 
     /*
-    * The following function are used to capture and save images
-    * void captureImage() -opens the camera and saves location of the photo
-    * File getPictureFile() -creates a file instance for camera to save to
-    * boolean checkCameraPermission() - returns true if camera permission is granted, false if not
-    * void requestCameraPermission() - asks user for camera permissions
-    *  boolean checkReadPermission() - returns true if read permission is granted, false if not
-    * void requestReadPermission() - asks user for read permissions
+     * The following function are used to capture and save images
+     * void captureImage() -opens the camera and saves location of the photo
+     * File getPictureFile() -creates a file instance for camera to save to
+     * boolean checkCameraPermission() - returns true if camera permission is granted, false if not
+     * void requestCameraPermission() - asks user for camera permissions
+     *  boolean checkReadPermission() - returns true if read permission is granted, false if not
+     * void requestReadPermission() - asks user for read permissions
      * boolean checkWritePermission() - returns true if write permission is granted, false if not
      * void requestWritePermission() - asks user for write permissions
      */
@@ -129,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             cameraIntent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, relativePath);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
-        //TO_DO    current.addPhotoItem(relativePath.toString(),priority);
+            //TO_DO    current.addPhotoItem(relativePath.toString(),priority);
         }
     }
     //this function creates a file to store a camera image
@@ -201,4 +212,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
