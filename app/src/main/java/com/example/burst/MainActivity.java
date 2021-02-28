@@ -9,7 +9,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ImageDecoder;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfDocument;
 import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void createPDF() {
         PdfDocument document = new PdfDocument();
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(612, 792, 1).create();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(612, 7920, 1).create();
         PdfDocument.Page intro = document.startPage(pageInfo);
 
         Canvas canvas = intro.getCanvas();
@@ -170,6 +172,21 @@ public class MainActivity extends AppCompatActivity{
         canvas.drawText("Date of Incident: " + current.date, 100, 200, paint);
         canvas.drawText("Time of Incident: " + current.time, 100, 300, paint);
         canvas.drawText("Location of Incident: " + current.location, 100, 400, paint);
+        canvas.drawText("Description:\n" + current.descriptions.get(0), 100, 500, paint);
+
+        for (int i = 0; i < current.photoPaths.size(); i++) {
+            try {
+                File image = new File(current.photoPaths.get(i));
+                ImageDecoder.Source source = ImageDecoder.createSource(image);
+                Drawable drawable = ImageDecoder.decodeDrawable(source);
+                drawable.draw(canvas);
+            } catch (IOException e) {
+                Log.v("ERROR", "error displaying images");
+                e.printStackTrace();
+            }
+
+            canvas.drawText("\n" + current.descriptions.get(i+1), 100, 1000 + i*100, paint);
+        }
 
         document.finishPage(intro);
 
