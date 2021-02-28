@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:gravity="center_horizontal"
-        android:text="Click on The Camera Icon Below to Take A Picture of The Pipe Damage"
+        android:text="Click on The Camera Icon Below to Take A Picture of The Water Damage"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"

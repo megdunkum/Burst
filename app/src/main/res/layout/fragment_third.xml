@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Write a Description of \nthe Pipe Damage Below"
+        android:text="Write a Description of \nthe Water Damage Below"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
