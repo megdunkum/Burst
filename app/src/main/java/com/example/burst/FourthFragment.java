@@ -55,6 +55,16 @@ public class FourthFragment extends Fragment {
                 }
             }
         });
+        //description = view.findViewById(R.id.editTextTextMultiLine);
+        view.findViewById(R.id.button_fourth).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //((MainActivity)getActivity()).addDescriptionItem(description.getText().toString(), 1);
+
+                NavHostFragment.findNavController(FourthFragment.this)
+                        .navigate(R.id.action_fourthFragment_to_docFragment);
+            }
+        });
     }
 
     private void captureImage() throws IOException {
