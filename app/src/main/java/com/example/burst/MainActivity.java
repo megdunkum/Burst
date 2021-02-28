@@ -60,6 +60,64 @@ public class MainActivity extends AppCompatActivity {
     private int priority = 1;
     private static final String IMAGE_DIRECTORY_NAME = "VLEMONN";
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+//TO_DO CHANGE NAME TO MATCH NEW UI
+        FloatingActionButton camera = findViewById(R.id.fab);
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    captureImage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+//TO_DO CHANGE BUTTON TO MATCH UI
+/*
+        mDescriptionEnter = (Button)findViewById(R.id.button1);
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View view) {
+                saveDescription();
+                //TO_DO Update view to next page
+        	}
+        });
+
+ */
+    }
+
+    /*
+     * The following functions are used to capture and save descriptions
+     * void saveDescription() - saves the current edited description
+     */
+
+  /*  TO_DO Requires an edit text button
+    private void saveDescription() {
+        String description = (EditText) findViewById(R.id.editText1);
+        current.addDescriptionItem(description, priority);
+    }
+ */
+
+    /*
+    * The following function are used to capture and save images
+    * void captureImage() -opens the camera and saves location of the photo
+    * File getPictureFile() -creates a file instance for camera to save to
+    * boolean checkCameraPermission() - returns true if camera permission is granted, false if not
+    * void requestCameraPermission() - asks user for camera permissions
+    *  boolean checkReadPermission() - returns true if read permission is granted, false if not
+    * void requestReadPermission() - asks user for read permissions
+     * boolean checkWritePermission() - returns true if write permission is granted, false if not
+     * void requestWritePermission() - asks user for write permissions
+     */
+
+    //this function opens the camera to take a photo and saves the resulting photo to the
+    //current documentation photoList at the current priority level
     private void captureImage() throws IOException {
 
         if (!checkCameraPermission()) {
@@ -73,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             current.addPhotoItem(relativePath.toString(),priority);
         }
     }
-
+    //this function creates a file to store a camera image
     private File getPictureFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         String pictureFile = "BURST_" + timeStamp;
@@ -81,69 +139,44 @@ public class MainActivity extends AppCompatActivity {
         File image = File.createTempFile(pictureFile,  ".jpg", storageDir);
         return image;
     }
-
+    //this function checks the camera permissions
     private boolean checkCameraPermission() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED)
             return false;
         return true;
     }
+    //this function requests the camera permissions
     private void requestCameraPermission() {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.CAMERA},
                 PERMISSION_REQUEST_CODE);
     }
+    //this function checks the read permissions
     private boolean checkReadPermission() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED)
             return false;
         return true;
     }
+    //this function requests the read permissions
     private void requestReadPermission() {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                 PERMISSION_REQUEST_CODE);
     }
+    //this function checks the write permissions
     private boolean checkWritePermission() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED)
             return false;
         return true;
     }
+    //this function requests the write permissions
     private void requestWritePermission() {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 PERMISSION_REQUEST_CODE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            //Save file name
-        }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton camera = findViewById(R.id.fab);
-        final int pic_id = 123;
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    captureImage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
     }
 
     @Override
