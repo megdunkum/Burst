@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void addDescriptionItem(String description, int priority)
     {
+        System.out.println(current.date);
         current.addDescriptionItem(description, priority);
     }
 
@@ -116,17 +117,6 @@ public class MainActivity extends AppCompatActivity{
         current.addPhotoItem(description, priority);
     }
 
-    /*
-     * The following functions are used to capture and save descriptions
-     * void saveDescription() - saves the current edited description
-     */
-
-  /*  TO_DO Requires an edit text button
-    private void saveDescription() {
-        String description = (EditText) findViewById(R.id.editText1);
-        current.addDescriptionItem(description, priority);
-    }
- */
 
     /*
      * The following function are used to capture and save images
