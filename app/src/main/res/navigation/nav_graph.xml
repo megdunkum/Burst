@@ -37,5 +37,14 @@
         android:id="@+id/fourthFragment"
         android:name="com.example.burst.FourthFragment"
         android:label="fragment_fourth"
-        tools:layout="@layout/fragment_fourth" />
+        tools:layout="@layout/fragment_fourth" >
+        <action
+            android:id="@+id/action_fourthFragment_to_docFragment"
+            app:destination="@id/docFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/docFragment"
+        android:name="com.example.burst.DocFragment"
+        android:label="fragment_doc"
+        tools:layout="@layout/fragment_doc" />
 </navigation>
