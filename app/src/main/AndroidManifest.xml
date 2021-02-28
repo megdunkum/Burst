@@ -17,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Burst">
 
-        <activity android:name=".PDFHeader"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.burst"
