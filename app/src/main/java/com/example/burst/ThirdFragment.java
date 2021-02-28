@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
  */
 public class ThirdFragment extends Fragment {
 
+    EditText description;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -28,10 +30,11 @@ public class ThirdFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        description = view.findViewById(R.id.editTextTextMultiLine);
         view.findViewById(R.id.button_third).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ((MainActivity)getActivity()).addDescriptionItem(description.getText().toString(), 1);
 
                 NavHostFragment.findNavController(ThirdFragment.this)
                         .navigate(R.id.action_thirdFragment_to_fourthFragment3);
