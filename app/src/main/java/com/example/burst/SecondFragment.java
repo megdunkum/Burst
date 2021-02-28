@@ -18,7 +18,10 @@ import android.widget.ImageButton;
 
 public class SecondFragment extends Fragment {
 
-    private DocumentationViewModel model;
+    EditText date;
+    EditText location;
+    EditText time;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -30,12 +33,16 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        model = new ViewModelProvider(requireActivity()).get(DocumentationViewModel.class);
 
+        date = view.findViewById(R.id.editTextDate);
+        time = view.findViewById(R.id.editTextTime);
+        location = view.findViewById(R.id.editTextLocation);
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
+                ((MainActivity)getActivity()).makeDocument(date.getText().toString(), time.getText().toString(), location.getText().toString());
+                System.out.println(date.getText().toString());
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_thirdFragment);
             }

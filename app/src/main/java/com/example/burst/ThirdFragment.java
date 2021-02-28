@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ThirdFragment#newInstance} factory method to
+ * Use the {@link ThirdFragment newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ThirdFragment extends Fragment {
@@ -32,14 +32,7 @@ public class ThirdFragment extends Fragment {
         view.findViewById(R.id.button_third).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TO_DO Create document
-                /*
-                String date = ((EditText)view.findViewById(R.id.editTextDate)).toString();
-                String time = view.findViewById(R.id.editTextTime).toString();
-                String location = view.findViewById(R.id.editTextLocation).toString();
-                System.out.println(date);
-                */
-                //Documentation current = new Documentation(date, time, location);
+
                 NavHostFragment.findNavController(ThirdFragment.this)
                         .navigate(R.id.action_thirdFragment_to_fourthFragment3);
             }

@@ -64,18 +64,15 @@ public class MainActivity extends AppCompatActivity{
     private static final int PERMISSION_REQUEST_CODE = 200;
     static final int CAMERA_REQUEST = 1;
     private int priority = 1;
-    DocumentationViewModel mViewModel;
+    Documentation current;
     private static final String IMAGE_DIRECTORY_NAME = "BURST";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mViewModel = new ViewModelProvider(this).get(DocumentationViewModel.class);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 //TO_DO CHANGE NAME TO MATCH NEW UI
         /*
         FloatingActionButton camera = findViewById(R.id.fab);
@@ -102,6 +99,21 @@ public class MainActivity extends AppCompatActivity{
         });
 
  */
+    }
+
+    public void makeDocument(String date, String loc, String time)
+    {
+        current = new Documentation(date, time, loc);
+    }
+
+    public void addDescriptionItem(String description, int priority)
+    {
+        current.addDescriptionItem(description, priority);
+    }
+
+    public void addPhotoItem(String description, int priority)
+    {
+        current.addPhotoItem(description, priority);
     }
 
     /*

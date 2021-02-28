@@ -13,6 +13,8 @@ import androidx.navigation.fragment.NavHostFragment;
 
 public class FirstFragment extends Fragment {
     FragmentActivity context;
+
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
