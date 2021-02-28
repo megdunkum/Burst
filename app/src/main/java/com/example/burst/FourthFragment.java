@@ -55,6 +55,13 @@ public class FourthFragment extends Fragment {
                 }
             }
         });
+
+        view.findViewById(R.id.button_fourth).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void captureImage() throws IOException {
