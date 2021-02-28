@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="464dp"
-        android:text="Do's \n     - Call and submit written claim to your\n       Insurance company \n     - Look into FEMA qualifications if you \n        don't have insurance \n \nDon'ts \n       - Keep damaged areas intact\n       - Leave any items or damaged areas as \n        untouched as possible\n       - Don't throw away anything"
+        android:text="Do's \n     - Call and submit written claim to your\n       Insurance Company OR \n     - Look into FEMA qualifications if you \n        don't have insurance \n \nDon'ts \n       - Keep damaged areas intact\n       - Leave any items or damaged areas as \n        untouched as possible\n       - Don't throw away anything"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="15dp"
         android:translationY="350dp"
@@ -67,4 +67,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

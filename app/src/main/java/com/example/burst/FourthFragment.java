@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ThirdFragment#newInstance} factory method to
+ * Use the {@link FourthFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ThirdFragment extends Fragment {
+public class FourthFragment extends Fragment {
 
     @Override
     public View onCreateView(
@@ -23,13 +23,13 @@ public class ThirdFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false);
+        return inflater.inflate(R.layout.fragment_fourth, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_third).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_fourth).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TO_DO Create document
@@ -40,8 +40,8 @@ public class ThirdFragment extends Fragment {
                 System.out.println(date);
                 */
                 //Documentation current = new Documentation(date, time, location);
-                NavHostFragment.findNavController(ThirdFragment.this)
-                        .navigate(R.id.action_thirdFragment_to_fourthFragment3);
+                //NavHostFragment.findNavController(FourthFragment.this)
+                  //      .navigate(R.id.action_thirdFragment_to_fourthFragment3);
             }
         });
     }
