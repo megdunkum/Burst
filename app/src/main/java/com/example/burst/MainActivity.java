@@ -45,8 +45,14 @@ import org.w3c.dom.ProcessingInstruction;
 import org.w3c.dom.Text;
 import org.w3c.dom.UserDataHandler;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -65,6 +71,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        try {
+            // Create file
+            FileOutputStream fos = openFileOutput("burst-report.txt", MODE_PRIVATE);
+
+            // Write to file
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+            writer.write("Hello world!");
+            writer.close();
+
+            // Read from file
+            BufferedReader input = new BufferedReader(new InputStreamReader(openFileInput("burst-report.txt")));
+            String line;
+            StringBuffer buffer = new StringBuffer();
+            while ((line = input.readLine()) != null) {
+                buffer.append(line + "\n");
+            }
+            String text = buffer.toString();
+
+            Log.v("NOTICE", "Opened, wrote, and read!");
+            Log.v("FILE CONTENTS", text);
+        } catch (IOException e) {
+            Log.v("ERROR", "could not open and write to file");
+            e.printStackTrace();
+        }
+
 //TO_DO CHANGE NAME TO MATCH NEW UI
         /*
         FloatingActionButton camera = findViewById(R.id.fab);
