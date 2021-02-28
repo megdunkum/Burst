@@ -7,6 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
+import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -151,6 +156,25 @@ public class MainActivity extends AppCompatActivity{
         current.addPhotoItem(description, priority);
     }
 
+    public void createPDF() {
+        PdfDocument document = new PdfDocument();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(612, 792, 1).create();
+        PdfDocument.Page intro = document.startPage(pageInfo);
+
+        Canvas canvas = intro.getCanvas();
+        Paint paint = new Paint();
+        canvas.drawPaint(paint);
+        paint.setColor(Color.BLACK);
+        paint.setTextSize(16);
+        canvas.drawText("Hello world!", 100, 100, paint);
+        canvas.drawText("Date of Incident: " + current.date, 100, 200, paint);
+        canvas.drawText("Time of Incident: " + current.time, 100, 300, paint);
+        canvas.drawText("Location of Incident: " + current.location, 100, 400, paint);
+
+        document.finishPage(intro);
+
+        //PdfRenderer renderer = new PdfRenderer(document);
+    }
 
     /*
      * The following function are used to capture and save images

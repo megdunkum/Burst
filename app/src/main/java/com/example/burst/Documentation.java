@@ -9,12 +9,12 @@ public class Documentation {
 
     //text
     public String date;
-    private String location;
-    private String time;
-    private List<String> descriptions;
-    private List<Integer> descriptionLevels;
-    private List<String> photoPaths;
-    private List<Integer> photoLevels;
+    public String location;
+    public String time;
+    public List<String> descriptions;
+    public List<Integer> descriptionLevels;
+    public List<String> photoPaths;
+    public List<Integer> photoLevels;
 
     //Level 1 is general damage
     //Level 2 is pipe damage
